@@ -1,0 +1,49 @@
+{
+  "name": "sanity-plugin-dashboard-widget-document-chart",
+  "version": "0.0.1",
+  "author": "Thomas Drevon <thomas@sanity.io>",
+  "description": "Dashboard widget for Sanity Content Studio",
+  "homepage": "https://github.com/thomax/sanity-dashboard-widget-document-chart#readme",
+  "public": true,
+  "keywords": [
+    "sanity",
+    "pluign",
+    "part",
+    "dashboard",
+    "widget",
+    "documents"
+  ],
+  "main": "lib/index.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomax/sanity-dashboard-widget-document-chart/issues"
+  },
+  "scripts": {
+    "build": "babel src -d lib --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomax/sanity-dashboard-widget-document-chart.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-config-sanity": "^2.1.4",
+    "eslint-plugin-react": "^7.1.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6 || ^16",
+    "react": "^16"
+  },
+  "dependencies": {
+    "await-sleep": "0.0.1",
+    "randomcolor": "^0.5.4",
+    "recharts": "^1.5.0"
+  }
+}
