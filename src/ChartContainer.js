@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import sleep from 'await-sleep'
-import {getCounts} from './sanityConnector'
 import {BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
 
 class ChartContainer extends React.Component {
