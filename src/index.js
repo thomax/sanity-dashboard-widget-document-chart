@@ -14,7 +14,7 @@ function queryFromTypes(types) {
 }
 
 class DocumentChart extends React.Component {
-  static state = {
+  state = {
     counts: null
   }
 

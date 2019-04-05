@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-dashboard-widget-document-chart",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Thomas Drevon <thomas@sanity.io>",
   "description": "Dashboard widget for Sanity Content Studio",
   "homepage": "https://github.com/thomax/sanity-dashboard-widget-document-chart#readme",
