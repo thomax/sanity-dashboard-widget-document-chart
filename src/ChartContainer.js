@@ -1,11 +1,13 @@
+/* eslint-disable react/no-did-mount-set-state,react/jsx-no-bind,react/forbid-prop-types */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {BarChart, Bar, XAxis, YAxis, Tooltip} from 'recharts'
+
+const barFillColor = '#156dff'
 
 class ChartContainer extends React.Component {
   static propTypes = {
-    data: PropTypes.object,
-    chartStyle: PropTypes.string
+    data: PropTypes.array
   }
 
   static defaultProps = {
@@ -13,27 +15,44 @@ class ChartContainer extends React.Component {
     chartStyle: null
   }
 
+  state = {
+    dimensions: {
+      width: 500,
+      height: 300
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      dimensions: {
+        width: this.container.offsetWidth,
+        height: this.container.offsetHeight
+      }
+    })
+  }
+
   render() {
-    const {chartStyle, data} = this.props
+    const {data} = this.props
+    const {dimensions} = this.state
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="value" fill="#8884d8" />
-      </BarChart>
+      <div ref={element => (this.container = element)}>
+        <BarChart
+          width={dimensions.width}
+          height={dimensions.height}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5
+          }}
+        >
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="value" fill={barFillColor} />
+        </BarChart>
+      </div>
     )
   }
 }

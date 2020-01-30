@@ -15,10 +15,10 @@
 //     value: 55
 //   }
 // ]
-const countsToData = counts => {
+const countsToChartData = counts => {
   return Object.keys(counts).map(key => ({name: key, value: counts[key]}))
 }
 
 module.exports = {
-  countsToData
+  countsToChartData
 }
