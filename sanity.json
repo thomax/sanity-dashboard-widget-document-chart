@@ -5,7 +5,7 @@
   },
   "parts": [
     {
-      "name": "part:@sanity/dashboard/widget/orbitals-2d",
+      "name": "part:@sanity/dashboard/widget/document-chart",
       "implements": "part:@sanity/dashboard/widget",
       "path": "index.js"
     }
