@@ -11,8 +11,7 @@ class ChartContainer extends React.Component {
   }
 
   static defaultProps = {
-    data: null,
-    chartStyle: null
+    data: null
   }
 
   state = {

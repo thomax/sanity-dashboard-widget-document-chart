@@ -2,7 +2,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import sanityClient from 'part:@sanity/base/client'
-import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import {countsToChartData} from './transformer'
 import ChartContainer from './ChartContainer.js'
@@ -13,7 +12,7 @@ function awarenessQueryFromTypes(types) {
     return null
   }
   const typesString = types.join('","')
-  return `*[_type in ["${typesString}"]] | order(_updatedAt desc)[0]`
+  return `*[_type in ["${typesString}"]] | order(_updatedAt desc)[0]{_id}`
 }
 
 function queryFromTypes(types) {
@@ -30,15 +29,11 @@ class DocumentChart extends React.Component {
   }
 
   static propTypes = {
-    types: PropTypes.array,
-    chartStyle: PropTypes.string
+    types: PropTypes.array
   }
 
   static defaultProps = {
-    query: null,
-    params: {},
-    types: null,
-    chartStyle: 'bar'
+    types: null
   }
 
   componentWillUnmount() {
@@ -46,7 +41,6 @@ class DocumentChart extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log('---->', schemaTypes)
     const {types} = this.props
     const query = awarenessQueryFromTypes(types)
 
@@ -57,7 +51,7 @@ class DocumentChart extends React.Component {
           query,
           {},
           {
-            includeResult: true,
+            includeResult: false,
             visibility: 'query',
             events: ['welcome', 'mutation', 'reconnect']
           }
@@ -81,7 +75,6 @@ class DocumentChart extends React.Component {
   }
 
   render() {
-    const {chartStyle} = this.props
     const {counts} = this.state
     if (!counts) {
       return <div>No counts</div>
@@ -93,7 +86,7 @@ class DocumentChart extends React.Component {
 
     return (
       <div className={styles.container}>
-        <ChartContainer data={data} chartStyle={chartStyle} />
+        <ChartContainer data={data} />
       </div>
     )
   }
