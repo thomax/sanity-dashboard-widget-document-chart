@@ -44,6 +44,6 @@
   "dependencies": {
     "await-sleep": "0.0.1",
     "randomcolor": "^0.5.4",
-    "recharts": "^1.5.0"
+    "recharts": "^2.1.14"
   }
 }
